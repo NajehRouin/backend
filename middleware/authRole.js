@@ -16,7 +16,7 @@ let verifyRole = {
 
   Role_User: async (req, res, next) => {
     try {
-      let user = await User.findById(req.userId).exec();
+      let user = await User.findById(req.user.id).exec();
 
       if (!user)
         return res.status(400).json({ msg: " user resource acces denied." });

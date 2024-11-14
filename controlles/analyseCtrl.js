@@ -1,11 +1,28 @@
 let analyse = require("../models/analyseModel");
 let user = require("../models/userModel");
+let notification = require("../models/notificationModel");
+const { FastMailer } = require("fast-mailer");
+
+const mailer = new FastMailer({
+  host: "smtp.gmail.com",
+  port: 465,
+  auth: {
+    user: "wafakardamine1999@gmail.com",
+    pass: "yfllwihitifjaxgd",
+  },
+  from: "wafakardamine1999@gmail.com",
+  logging: {
+    level: "debug",
+    format: "text",
+    destination: "logging.log",
+  },
+});
 
 let analyseCtrl = {
   createAnalyse: async (req, res) => {
     try {
-      const currentUser = await user.findById(req.userId);
-      let { projet, objectif, typeAnalyse, analyses } = req.body;
+      const currentUser = await user.findById(req.user.id);
+      let { projet, objectif, adresse, typeAnalyse, analyses } = req.body;
       let arrayAnalyses = [];
       let prixTotal = 0;
       if (!projet) return res.status(302).json({ msg: "projet  Obligatoire" });
@@ -29,6 +46,7 @@ let analyseCtrl = {
         nomUser: currentUser?.name,
         cin: currentUser?.cin,
         numPhone: currentUser?.numPhone,
+        adresse,
         projet,
         objectif,
         typeAnalyse,
@@ -37,7 +55,12 @@ let analyseCtrl = {
       });
 
       await newAnalyse.save();
-
+      // Create a notification for the admin
+      const newNotification = new notification({
+        message: `${currentUser?.name}`,
+        typeNotifiaction: "demande",
+      });
+      await newNotification.save();
       res.status(201).json({
         data: newAnalyse,
         success: true,
@@ -55,7 +78,7 @@ let analyseCtrl = {
 
   getAllAnalyseByUser: async (req, res) => {
     try {
-      const currentUser = await user.findById(req.userId);
+      const currentUser = await user.findById(req.user.id);
       let findAnalyse = await analyse
         .find({ user: currentUser?._id })
         .sort({ createdAt: -1 });
@@ -89,18 +112,16 @@ let analyseCtrl = {
       });
     }
   },
-  
+
   getAnalyseById: async (req, res) => {
     try {
       let { idAnalyse } = req.body;
-      let findAnalyse=await analyse.findById(idAnalyse)
+      let findAnalyse = await analyse.findById(idAnalyse);
       res.status(201).json({
         data: findAnalyse,
         success: true,
-        error: false
-       
+        error: false,
       });
-      
     } catch (err) {
       res.status(400).json({
         msg: err.message || err,
@@ -109,6 +130,7 @@ let analyseCtrl = {
       });
     }
   },
+
   PaiementAnalyse: async (req, res) => {
     try {
       let { idAnalyse, fichierPaiment } = req.body;
@@ -120,6 +142,13 @@ let analyseCtrl = {
         { _id: idAnalyse },
         { fichierPaiment: "/upload/analyse/" + fichierPaiment }
       );
+
+      const newNotification = new notification({
+        message: `${findAnalyse?.nomUser} envoie  un virement`,
+        typeNotifiaction: "paiement",
+      });
+      await newNotification.save();
+
       res.status(201).json({
         data: findAnalyse,
         success: true,
@@ -134,20 +163,35 @@ let analyseCtrl = {
       });
     }
   },
-  AcceptePaiement:async(req,res)=>{
+  AcceptePaiement: async (req, res) => {
     try {
       let { idAnalyse } = req.body;
-      let findAnalyse=await analyse.findById(idAnalyse)
-      if(!findAnalyse.paimentStatus){
-        let updateAnalyse=await analyse.findByIdAndUpdate({_id:idAnalyse},{paimentStatus:true})
+      let findAnalyse = await analyse
+        .findById(idAnalyse)
+        .populate("user", "email");
+      if (!findAnalyse.paimentStatus) {
+        let updateAnalyse = await analyse.findByIdAndUpdate(
+          { _id: idAnalyse },
+          { paimentStatus: true }
+        );
+
+        await mailer.sendMail({
+          to: findAnalyse?.user?.email,
+          subject: "Acceptation du  Virement",
+          text: "شكرا لك لقد تم قبول دفعتك و نرجوا منك الانتظار حتى نكملوا نتائج الاختبار التي قدمتها، سنقوم بإعلامك لاحقًا عند الانتهاء من الاختبارات ",
+        });
+
         res.status(201).json({
           data: updateAnalyse,
           success: true,
           error: false,
           message: "Le paiement a été accepté avec succès !",
         });
-      }else{
-        let updateAnalyse=await analyse.findByIdAndUpdate({_id:idAnalyse},{paimentStatus:false})
+      } else {
+        let updateAnalyse = await analyse.findByIdAndUpdate(
+          { _id: idAnalyse },
+          { paimentStatus: false }
+        );
         res.status(201).json({
           data: updateAnalyse,
           success: true,
@@ -155,8 +199,6 @@ let analyseCtrl = {
           message: "Le paiement n'est pas accepté !",
         });
       }
-
-      
     } catch (err) {
       res.status(400).json({
         msg: err.message || err,
@@ -165,19 +207,27 @@ let analyseCtrl = {
       });
     }
   },
-  envoyerAnalyse:async(req,res)=>{
+  envoyerAnalyse: async (req, res) => {
     try {
       let { idAnalyse, resultatAnalyse } = req.body;
-      
+
       if (!resultatAnalyse)
         return res.status(302).json({ msg: "fichier Resultat  Obligatoire" });
-
-      let findAnalyse = await analyse.findByIdAndUpdate(
+      let findAnalyse = await analyse
+        .findById(idAnalyse)
+        .populate("user", "email");
+      let findUpdateAnalyse = await analyse.findByIdAndUpdate(
         { _id: idAnalyse },
         { resultatAnalyse: "/upload/resultat/" + resultatAnalyse }
       );
+
+      await mailer.sendMail({
+        to: findAnalyse?.user?.email,
+        subject: "Resultat de L'analyse",
+        text: "شكرا لك على الإنتظار كما تم اعلامكم سابقا سيتم مراسلتك  عند الإنتهاء من التحليل يمكنك الأن الدخول إلى التطبيق لتحميل ملف التحليل الخاص بك",
+      });
       res.status(201).json({
-        data: findAnalyse,
+        data: findUpdateAnalyse,
         success: true,
         error: false,
         message: "Resultat envoyée avec succès !",
@@ -189,7 +239,7 @@ let analyseCtrl = {
         success: false,
       });
     }
-  }
+  },
 };
 
 module.exports = analyseCtrl;

@@ -13,10 +13,14 @@ let analyseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  numPhone:{
-    type:String,
-    required:true
-},
+  numPhone: {
+    type: String,
+    required: true,
+  },
+  adresse: {
+    type: String,
+    required: true,
+  },
   projet: {
     type: String,
     required: true,
@@ -30,18 +34,19 @@ let analyseSchema = new mongoose.Schema({
     enum: ["analyse complete", "analyse incomplete"],
     required: true,
   },
-  analyses:[{
-    nom:{
-        type:String
+  analyses: [
+    {
+      nom: {
+        type: String,
+      },
+      prix: {
+        type: Number,
+      },
     },
-    prix:{
-        type:Number
-    }
-  }],
+  ],
 
-  prixTotal:{
-    type:Number,
-
+  prixTotal: {
+    type: Number,
   },
 
   fichierPaiment: {
@@ -53,16 +58,14 @@ let analyseSchema = new mongoose.Schema({
     default: false,
   },
 
-  resultatAnalyse:{
+  resultatAnalyse: {
     type: String,
     default: "",
   },
   createdAt: {
     type: Date,
     default: Date.now,
-}
-
- 
+  },
 });
 
 module.exports = mongoose.model("analyse", analyseSchema);

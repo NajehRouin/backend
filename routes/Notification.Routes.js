@@ -1,14 +1,56 @@
-let router=require('express').Router()
-let auth=require('../middleware/auth')
-let isAdmin=require('../middleware/authRole')
+let router = require("express").Router();
+let auth = require("../middleware/auth");
+let isAdmin = require("../middleware/authRole");
 
-let notificationCtrl=require('../controlles/notificationCtrl')
+let notificationCtrl = require("../controlles/notificationCtrl");
 
-router.get('/notifications',auth.auhAdmin,isAdmin.Role_Admin,notificationCtrl.getNotifications)
-router.get('/notifications-number',auth.auhAdmin,isAdmin.Role_Admin,notificationCtrl.getNotificationNumber)
+router.get(
+  "/notifications",
+  auth.auhAdmin,
+  isAdmin.Role_Admin,
+  notificationCtrl.getNotificationsUser
+);
 
+router.get(
+  "/notificationsdemande",
+  auth.auhAdmin,
+  isAdmin.Role_Admin,
+  notificationCtrl.getNotificationsDemande
+);
 
-router.put('/notification',auth.auhAdmin,isAdmin.Role_Admin,notificationCtrl.markNotificationAsRead)
+router.get(
+  "/notificationspaiement",
+  auth.auhAdmin,
+  isAdmin.Role_Admin,
+  notificationCtrl.getNotificationsPaiement
+);
 
+router.get(
+  "/notifications-number",
+  auth.auhAdmin,
+  isAdmin.Role_Admin,
+  notificationCtrl.getNotificationUserNumber
+);
 
-module.exports=router
+router.get(
+  "/notificationsdemandenumber",
+  auth.auhAdmin,
+  isAdmin.Role_Admin,
+  notificationCtrl.getNotificationDemandeNumber
+);
+
+router.get(
+  "/notificationspaiementnumber",
+  auth.auhAdmin,
+  isAdmin.Role_Admin,
+  notificationCtrl.getNotificationPaiementNumber
+);
+
+router.put(
+  "/notification",
+  auth.auhAdmin,
+  isAdmin.Role_Admin,
+  notificationCtrl.markNotificationAsRead
+);
+
+module.exports = router;

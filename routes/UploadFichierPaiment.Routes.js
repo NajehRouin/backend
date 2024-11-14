@@ -1,7 +1,6 @@
 let router = require("express").Router();
 let multer = require("multer");
 
-
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "upload/analyse/");
@@ -17,8 +16,16 @@ let upload = multer({
 
 router.post("/paiement", upload.single("file"), async (req, res) => {
   let file = req.file;
-
-  res.json({ message: "Fichier téléchargé avec succès", result: file });
+  if (!file) {
+    return res
+      .status(400)
+      .json({ success: false, message: "fichier obligatoire" });
+  }
+  res.json({
+    success: true,
+    message: "Fichier téléchargé avec succès",
+    result: file,
+  });
 });
 
 module.exports = router;

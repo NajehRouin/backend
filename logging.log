@@ -1,0 +1,33 @@
+[2024-11-12T10:23:02.826Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.najeh71@gmail.com","subject":"login","timestamp":"2024-11-12T10:23:02.826Z"}
+[2024-11-12T10:23:03.862Z] INFO: {"success":true,"event":"mail_success","messageId":"f992e434b6f35ce823c35fd8d858d8b7","recipients":"rouin.najeh71@gmail.com","subject":"login","sendTime":942}
+[2024-11-12T10:25:11.819Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.najeh71@gmail.com","subject":"login","timestamp":"2024-11-12T10:25:11.819Z"}
+[2024-11-12T10:25:12.966Z] ERROR: {"success":false,"event":"mail_failure","error":{"code":"EATTACHMENT","message":"Failed to read attachment file","details":{"type":"attachment_error","context":{"path":"../upload/analyse/user.png","error":{},"lastCommand":"DATA","recipients":["rouin.najeh71@gmail.com"],"subject":"login","attemptNumber":1,"socketState":"connected"},"timestamp":"2024-11-12T10:25:12.966Z"}},"recipients":"rouin.najeh71@gmail.com","subject":"login","sendTime":848}
+[2024-11-12T10:26:13.217Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.najeh71@gmail.com","subject":"login","timestamp":"2024-11-12T10:26:13.217Z"}
+[2024-11-12T10:26:14.121Z] ERROR: {"success":false,"event":"mail_failure","error":{"code":"EATTACHMENT","message":"Failed to read attachment file","details":{"type":"attachment_error","context":{"path":"/upload/analyse/user.png","error":{},"lastCommand":"DATA","recipients":["rouin.najeh71@gmail.com"],"subject":"login","attemptNumber":1,"socketState":"connected"},"timestamp":"2024-11-12T10:26:14.121Z"}},"recipients":"rouin.najeh71@gmail.com","subject":"login","sendTime":779}
+[2024-11-12T10:27:41.849Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.najeh71@gmail.com","subject":"login","timestamp":"2024-11-12T10:27:41.849Z"}
+[2024-11-12T10:27:42.772Z] INFO: {"success":true,"event":"mail_success","messageId":"007dc31d282bc77629b8d7b2e03d39ba","recipients":"rouin.najeh71@gmail.com","subject":"login","sendTime":817}
+[2024-11-12T10:29:31.777Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.najeh71@gmail.com","subject":"login","timestamp":"2024-11-12T10:29:31.777Z"}
+[2024-11-12T10:29:32.889Z] INFO: {"success":true,"event":"mail_success","messageId":"65cd70b5d1e47a71ea2d84bd648f675b","recipients":"rouin.najeh71@gmail.com","subject":"login","sendTime":941}
+[2024-11-12T10:30:12.957Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.najeh71","subject":"login","timestamp":"2024-11-12T10:30:12.957Z"}
+[2024-11-12T10:30:40.776Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.na71@gmail.com","subject":"login","timestamp":"2024-11-12T10:30:40.776Z"}
+[2024-11-12T10:30:42.026Z] INFO: {"success":true,"event":"mail_success","messageId":"d5da0230ed0fc114b23ce86bb1021af5","recipients":"rouin.na71@gmail.com","subject":"login","sendTime":1150}
+[2024-11-13T09:22:20.787Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.na71@gmail.com","subject":"login","timestamp":"2024-11-13T09:22:20.787Z"}
+[2024-11-13T09:22:21.994Z] INFO: {"success":true,"event":"mail_success","messageId":"4640159561ede09ebbe7ae9b2218fefc","recipients":"rouin.na71@gmail.com","subject":"login","sendTime":1002}
+[2024-11-13T09:42:17.695Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.na71@gmail.com","subject":"login","timestamp":"2024-11-13T09:42:17.695Z"}
+[2024-11-13T09:42:19.017Z] INFO: {"success":true,"event":"mail_success","messageId":"fa1207ad2e38f9bd471213d8dea1537e","recipients":"rouin.na71@gmail.com","subject":"login","sendTime":1177}
+[2024-11-13T09:45:42.835Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.na71@gmail.com","subject":"login","timestamp":"2024-11-13T09:45:42.835Z"}
+[2024-11-13T09:45:43.821Z] INFO: {"success":true,"event":"mail_success","messageId":"eccdf067d0fd6243396ac8aec5a712a2","recipients":"rouin.na71@gmail.com","subject":"login","sendTime":814}
+[2024-11-13T12:43:22.406Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.na71@gmail.com","subject":"login","timestamp":"2024-11-13T12:43:22.406Z"}
+[2024-11-13T12:43:23.666Z] INFO: {"success":true,"event":"mail_success","messageId":"e5973f2881c30646c47c4a92bdb757d5","recipients":"rouin.na71@gmail.com","subject":"login","sendTime":1090}
+[2024-11-13T13:04:46.507Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.na71@gmail.com","subject":"login","timestamp":"2024-11-13T13:04:46.507Z"}
+[2024-11-13T13:04:49.672Z] INFO: {"success":true,"event":"mail_success","messageId":"4e3ff034233669ff334ad21108fc4911","recipients":"rouin.na71@gmail.com","subject":"login","sendTime":2984}
+[2024-11-13T13:07:40.894Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.na71@gmail.com","subject":"login","timestamp":"2024-11-13T13:07:40.894Z"}
+[2024-11-13T13:07:42.118Z] INFO: {"success":true,"event":"mail_success","messageId":"00e21a36b82117109f76e258cb2df67d","recipients":"rouin.na71@gmail.com","subject":"login","sendTime":1056}
+[2024-11-13T13:44:28.671Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.na71@gmail.com","subject":"login","timestamp":"2024-11-13T13:44:28.671Z"}
+[2024-11-13T13:44:29.796Z] INFO: {"success":true,"event":"mail_success","messageId":"9e00b9dd42a73255c882b30d031c6ef1","recipients":"rouin.na71@gmail.com","subject":"login","sendTime":989}
+[2024-11-13T13:47:00.929Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.na71@gmail.com","subject":"login","timestamp":"2024-11-13T13:47:00.929Z"}
+[2024-11-13T13:47:02.013Z] INFO: {"success":true,"event":"mail_success","messageId":"fad21e041259db6a3787fcca954f3b0d","recipients":"rouin.na71@gmail.com","subject":"login","sendTime":977}
+[2024-11-13T23:48:05.693Z] DEBUG: {"event":"mail_attempt","recipients":"wafakardamine1999@gmail.com","subject":"Acceptation du  Virement","timestamp":"2024-11-13T23:48:05.693Z"}
+[2024-11-13T23:48:07.512Z] INFO: {"success":true,"event":"mail_success","messageId":"522d7c5022d1fde71bd8df1a6f770b34","recipients":"wafakardamine1999@gmail.com","subject":"Acceptation du  Virement","sendTime":1657}
+[2024-11-14T00:00:04.209Z] DEBUG: {"event":"mail_attempt","recipients":"wafakardamine1999@gmail.com","subject":"Resultat de L'analyse","timestamp":"2024-11-14T00:00:04.209Z"}
+[2024-11-14T00:00:05.968Z] INFO: {"success":true,"event":"mail_success","messageId":"89c819a044651efd36b382098c64579c","recipients":"wafakardamine1999@gmail.com","subject":"Resultat de L'analyse","sendTime":1582}
