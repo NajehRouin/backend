@@ -2,6 +2,22 @@ let user = require("../models/userModel");
 let notification = require("../models/notificationModel");
 let jwt = require("jsonwebtoken");
 let bcrypt = require("bcrypt");
+const { FastMailer } = require("fast-mailer");
+
+const mailer = new FastMailer({
+  host: "smtp.gmail.com",
+  port: 465,
+  auth: {
+    user: "wafakardamine1999@gmail.com",
+    pass: "yfllwihitifjaxgd",
+  },
+  from: "wafakardamine1999@gmail.com",
+  logging: {
+    level: "debug",
+    format: "text",
+    destination: "logging.log",
+  },
+});
 
 let userCtrl = {
   login: async (req, res) => {
@@ -171,6 +187,76 @@ let userCtrl = {
         success: true,
         error: false,
         message: "votre Profile modifer avec succès !",
+      });
+    } catch (err) {
+      res.status(400).json({
+        message: err.message || err,
+        error: true,
+        success: false,
+      });
+    }
+  },
+
+  forgetPassword: async (req, res) => {
+    try {
+      let { email } = req.body;
+      const findUser = await user.findOne({ email });
+      if (!findUser) return res.status(302).json({ msg: "email n'existe pas" });
+      const caracteres =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let resultat = "";
+
+      const longueur = Math.floor(Math.random() * (8 - 8 + 1)) + 8;
+      for (let i = 0; i < longueur; i++) {
+        const indexAleatoire = Math.floor(Math.random() * caracteres.length);
+        resultat += caracteres[indexAleatoire];
+      }
+      let password = resultat;
+      const salt = bcrypt.genSaltSync(10);
+      const hashPassword = await bcrypt.hashSync(password, salt);
+
+      let sendMail = await mailer.sendMail({
+        to: findUser?.email,
+        subject: "modifier mot de passe",
+        text: `votre mot de passe a été changé en  : ${password}`,
+      });
+      await user.findByIdAndUpdate(
+        { _id: findUser._id },
+        { password: hashPassword }
+      );
+
+      res.status(201).json({
+        success: true,
+        error: false,
+        message: "mot de passe modifer avec succès !",
+      });
+    } catch (err) {
+      res.status(400).json({
+        message: err.message || err,
+        error: true,
+        success: false,
+      });
+    }
+  },
+  updatePassWord: async (req, res) => {
+    try {
+      const findUser = await user.findById(req.user.id);
+      let { password, nvPassword } = req.body;
+
+      let isMatch = await bcrypt.compare(password, findUser.password);
+      if (!isMatch)
+        return res.status(302).json({ msg: "mot de passe incorrect" });
+
+      const hashPassword = await bcrypt.hash(nvPassword, 10);
+
+      await user.findByIdAndUpdate(
+        { _id: findUser._id },
+        { password: hashPassword }
+      );
+      res.status(201).json({
+        success: true,
+        error: false,
+        message: "mot de passe modifer avec succès !",
       });
     } catch (err) {
       res.status(400).json({

@@ -22,4 +22,13 @@ router.put(
   isAdmin.Role_User,
   userCtrl.updateProfil
 );
+
+router.put(
+  "/updatePassWord",
+  auth.auhUser,
+  isAdmin.Role_User,
+  userCtrl.updatePassWord
+);
+
+router.post("/forgetpass", userCtrl.forgetPassword);
 module.exports = router;

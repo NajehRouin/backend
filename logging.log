@@ -31,3 +31,24 @@
 [2024-11-13T23:48:07.512Z] INFO: {"success":true,"event":"mail_success","messageId":"522d7c5022d1fde71bd8df1a6f770b34","recipients":"wafakardamine1999@gmail.com","subject":"Acceptation du  Virement","sendTime":1657}
 [2024-11-14T00:00:04.209Z] DEBUG: {"event":"mail_attempt","recipients":"wafakardamine1999@gmail.com","subject":"Resultat de L'analyse","timestamp":"2024-11-14T00:00:04.209Z"}
 [2024-11-14T00:00:05.968Z] INFO: {"success":true,"event":"mail_success","messageId":"89c819a044651efd36b382098c64579c","recipients":"wafakardamine1999@gmail.com","subject":"Resultat de L'analyse","sendTime":1582}
+[2024-11-14T08:52:07.078Z] DEBUG: {"event":"mail_attempt","recipients":"wafakardamine1999@gmail.com","subject":"Acceptation du  Virement","timestamp":"2024-11-14T08:52:07.078Z"}
+[2024-11-14T08:52:08.199Z] INFO: {"success":true,"event":"mail_success","messageId":"de1bf0a08ee3e7bca24c37215630529e","recipients":"wafakardamine1999@gmail.com","subject":"Acceptation du  Virement","sendTime":954}
+[2024-11-14T08:52:24.477Z] DEBUG: {"event":"mail_attempt","recipients":"wafakardamine1999@gmail.com","subject":"Resultat de L'analyse","timestamp":"2024-11-14T08:52:24.477Z"}
+[2024-11-14T08:52:25.423Z] INFO: {"success":true,"event":"mail_success","messageId":"c43949c62f7d5221a906a6fe4c61c0b5","recipients":"wafakardamine1999@gmail.com","subject":"Resultat de L'analyse","sendTime":868}
+[2024-11-14T09:22:57.679Z] DEBUG: {"event":"mail_attempt","recipients":"wafakardamine1999@gmail.com","subject":"Acceptation du  Virement","timestamp":"2024-11-14T09:22:57.679Z"}
+[2024-11-14T09:22:58.789Z] INFO: {"success":true,"event":"mail_success","messageId":"4d8b82d5a2cd6a2d2d1756e385da5223","recipients":"wafakardamine1999@gmail.com","subject":"Acceptation du  Virement","sendTime":939}
+[2024-11-14T09:23:19.201Z] DEBUG: {"event":"mail_attempt","recipients":"wafakardamine1999@gmail.com","subject":"Resultat de L'analyse","timestamp":"2024-11-14T09:23:19.201Z"}
+[2024-11-14T09:23:20.079Z] INFO: {"success":true,"event":"mail_success","messageId":"994c1d5663376e51d655e9f2743da1eb","recipients":"wafakardamine1999@gmail.com","subject":"Resultat de L'analyse","sendTime":810}
+[2024-11-14T10:15:27.920Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.najeh71@gmail.com","subject":"modifier mot de passe","timestamp":"2024-11-14T10:15:27.920Z"}
+[2024-11-14T10:15:28.938Z] INFO: {"success":true,"event":"mail_success","messageId":"6b5721bf89eef4c5ad0b3aa3f4a2e5ee","recipients":"rouin.najeh71@gmail.com","subject":"modifier mot de passe","sendTime":861}
+[2024-11-14T10:16:15.303Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.najeh71@gmail.com","subject":"modifier mot de passe","timestamp":"2024-11-14T10:16:15.303Z"}
+[2024-11-14T10:16:16.681Z] INFO: {"success":true,"event":"mail_success","messageId":"5165bd90629b7aaee120230e66133426","recipients":"rouin.najeh71@gmail.com","subject":"modifier mot de passe","sendTime":958}
+[2024-11-14T10:16:42.472Z] DEBUG: {"event":"mail_attempt","recipients":"roui@gmail.com","subject":"modifier mot de passe","timestamp":"2024-11-14T10:16:42.472Z"}
+[2024-11-14T10:16:43.388Z] INFO: {"success":true,"event":"mail_success","messageId":"fd4b2646b23d181f2e2a40531a8d355a","recipients":"roui@gmail.com","subject":"modifier mot de passe","sendTime":768}
+[2024-11-14T10:16:54.950Z] DEBUG: {"event":"mail_attempt","recipients":"roui@gmail.com","subject":"modifier mot de passe","timestamp":"2024-11-14T10:16:54.950Z"}
+[2024-11-14T10:16:55.948Z] INFO: {"success":true,"event":"mail_success","messageId":"5969a18791b592b9faa835f5f38b2b02","recipients":"roui@gmail.com","subject":"modifier mot de passe","sendTime":901}
+[2024-11-14T10:19:51.022Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.najeh71@gmail@gmail.com","subject":"modifier mot de passe","timestamp":"2024-11-14T10:19:51.022Z"}
+[2024-11-14T10:20:09.804Z] DEBUG: {"event":"mail_attempt","recipients":"rouin.najeh71@gmail.com","subject":"modifier mot de passe","timestamp":"2024-11-14T10:20:09.804Z"}
+[2024-11-14T10:20:10.727Z] INFO: {"success":true,"event":"mail_success","messageId":"78df629026f314e0ea74fc6781465ad3","recipients":"rouin.najeh71@gmail.com","subject":"modifier mot de passe","sendTime":828}
+[2024-11-14T10:31:20.053Z] DEBUG: {"event":"mail_attempt","recipients":"wafakardamine1999@gmail.com","subject":"modifier mot de passe","timestamp":"2024-11-14T10:31:20.053Z"}
+[2024-11-14T10:31:21.515Z] INFO: {"success":true,"event":"mail_success","messageId":"78b622e910f3373ee08e35224aac4669","recipients":"wafakardamine1999@gmail.com","subject":"modifier mot de passe","sendTime":1258}
